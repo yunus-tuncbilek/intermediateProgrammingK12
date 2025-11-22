@@ -1,0 +1,28 @@
+# 10.4-5 ⋆⋆¶
+
+#     Write an O(n)O(n)-time nonrecursive procedure that, 
+#     given an nn-node binary tree, prints out the key of each node. 
+#     Use no more than constant extra space outside of the tree itself 
+#     and do not modify the tree, even temporarily, during the procedure.
+
+
+def print_key(T)
+    prev = NIL
+    x = T.root
+    while x != NIL
+        if prev = x.parent
+            print x.key
+            prev = x
+            if x.left
+                x = x.left
+            else
+                if x.right
+                    x = x.right
+                else 
+                    x = x.parent
+        else if prev == x.left and x.right != NIL
+                prev = x
+                x = x.right
+        else
+                prev = x
+                x = x.parent

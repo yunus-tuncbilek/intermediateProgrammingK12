@@ -10,7 +10,6 @@ def merge_sort(arr):
         # Merge the sorted halves
         i = j = k = 0
 
-        # Copy data to temp arrays left_half[] and right_half[]
         while i < len(left_half) and j < len(right_half):
             if left_half[i] < right_half[j]:
                 arr[k] = left_half[i]
@@ -33,6 +32,22 @@ def merge_sort(arr):
             k += 1
 
 # Example usage:
-my_list = [12, 11, 13, 5, 6, 7]
-merge_sort(my_list)
-print("Sorted array is:", my_list)
+my_list = list(range(10**7, 0, -1))  # A large list in reverse order
+
+# calculate the time taken by merge_sort
+
+import time
+# start_time = time.time()
+res = my_list.copy()
+merge_sort(res)
+# end_time = time.time()
+# print(f"Time taken by merge_sort: {end_time - start_time} seconds")
+# print("Sorted array is:", res)
+
+# compare against the time taken by built-in sort
+# start_time = time.time()
+my_list.sort()
+# end_time = time.time()
+# print(f"Time taken by built-in sort: {end_time - start_time} seconds")
+# print("Built-in sorted array is:", my_list)
+assert res == my_list

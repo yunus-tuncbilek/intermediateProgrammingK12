@@ -1,6 +1,8 @@
 from collections import deque
 import sys
 
+input = sys.stdin.readline
+
 nm = sys.stdin.readline()
 n, m = map(int, nm.split())
 
@@ -8,6 +10,7 @@ n, m = map(int, nm.split())
 #   other options: adjacency matrix, edge list
 visited = set()
 adjlist = []
+# [[1], [2], [0] ] -> 3 nodes, 3 edges (looks like a triangle)
 for i in range(n+1):
     adjlist.append(set())
 
@@ -35,11 +38,20 @@ for i in range(2):
     while q:
         curr = q.popleft() #current node on pipeline 
 
+        # # Option 1: process current node here
+        # if curr == pq[1-i]:
+        #     if i == 0:
+        #         print('yes')
+        #     else:
+        #         print('no')
+        #     sys.exit()
+
         for nei in adjlist[curr]: #children/neighbors of current node
             if nei not in visited: #verify the child is not visited
                 q.append(nei) #add child to pipeline
                 visited.add(nei) #mark child as visited
-                    
+
+                # Option 2: process neighbor here
                 if nei == pq[i-1]: #if we found the other node
                     if nei == pq[0]:
                         print('no')
@@ -48,6 +60,7 @@ for i in range(2):
                     else:
                         print('yes')
                         sys.exit()
+                
     visited = set()
 
 print('unknown')

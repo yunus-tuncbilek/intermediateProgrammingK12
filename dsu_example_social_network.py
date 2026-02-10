@@ -3,7 +3,7 @@ import sys
 # Increase recursion depth for deep trees
 sys.setrecursionlimit(200000)
 
-# Fast I/O: Reads all input at once and splits by whitespace
+# Fast I/O
 input = sys.stdin.readline
 
 n, m = map(int, input().split())  # Number of people
@@ -23,6 +23,9 @@ def union(i, j):
     # TODO: Implement union
     # 1. Find the roots of both i and j
     # 2. If roots are different, point one to the other
+    #    (Optional) point the root that has fewer "children" to the 
+    #       one that has more by keeping a list called "size" for 
+    #       each root.
     pass
 
 # Processing the operations

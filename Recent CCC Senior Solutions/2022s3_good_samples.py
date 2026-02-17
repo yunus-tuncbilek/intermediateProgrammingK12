@@ -41,7 +41,7 @@ if needed == 0:
 
 res = []
 curr = 1
-while (needed >= m - 1 or needed >= len(res)) and len(res) < n:
+while (needed >= m - 1 or needed >= len(res)):
     res.append(curr)
     needed -= min(len(res) - 1, m - 1)
     curr += 1

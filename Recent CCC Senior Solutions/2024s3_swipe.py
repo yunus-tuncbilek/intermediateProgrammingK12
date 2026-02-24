@@ -29,7 +29,13 @@ for val, start, end in segments:
         print("NO")
         sys.exit(0)
     
-    source_indices.append(a_ptr)
+    source_indices.append(a_ptr) # Greedy choice: use the first occurrence of val in A for this segment
+
+    # Prove that Greedy choice is optimal: If we used a later occurrence of val in A for this segment, 
+    # we would have to use an even later occurrence for the next segment (since segments are in order), 
+    # which could lead to running out of occurrences for future segments. By using the earliest occurrence, 
+    # we maximize the chances of successfully mapping all segments.
+    
     a_ptr += 1 # Move past this used element
 
 # 3. Generate Swipes

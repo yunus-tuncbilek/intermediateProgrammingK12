@@ -10,7 +10,9 @@ def main():
 
     job_sequencing = [i for i in range(number_of_gates + 1)]
 
-    def find(index):
+    # [1,2,3,4,5,6,6,6,6,10] for 10 gates
+
+    def find(index): # Path Compression
         if job_sequencing[index] != index:
             job_sequencing[index] = find(job_sequencing[index])
         return job_sequencing[index]

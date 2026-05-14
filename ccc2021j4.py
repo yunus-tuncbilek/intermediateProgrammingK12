@@ -1,27 +1,4 @@
-import sys
-
-def check(books):
-    '''Check if the books are in the correct order: L, then M, then S.'''
-    seen_m, seen_s = False, False
-    for book in books:
-        if book == "L" and not seen_m and not seen_s:
-            continue
-        elif book == "M" and not seen_s:
-            seen_m = True
-        elif book == "S":
-            seen_s = True
-        else:
-            return False
-    return True
-
-# print(check("LLLMMMSSS"))
-# print(check("LLSLM"))
-
 books = input()
-
-if check(books):
-    print(0)
-    sys.exit(0)
 
 # count the number of misplaced books
 count_l, count_m, count_s = 0, 0, 0
@@ -62,7 +39,7 @@ temp = min(m_s, s_m)
 m_s -= temp
 s_m -= temp
 
-# for every remaining three books, we need two moves to swap them
+# for every remaining three books, we need two moves to swap
 moves += 2 * (l_m + l_s + m_l + m_s + s_l + s_m) // 3
 
 print(moves)
